@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Utensils, Menu, X } from "lucide-react";
-import img1 from "../../../../Assets/logo_v1.png";
-import img2 from "../../../../Assets/pexels-olly-831012.jpg";
+import img1 from "../../assets/logo_v1.png";
+import img2 from "../../assets/pexels-olly-831012.jpg";
 
 interface LayoutProps {
   children: React.ReactNode;
