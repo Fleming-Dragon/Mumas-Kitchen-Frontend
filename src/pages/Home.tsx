@@ -8,6 +8,8 @@ import {
   Heart,
   CheckCircle,
   Star,
+  Stethoscope,
+  ChefHat,
   Truck,
   Shield,
   Award,
@@ -28,15 +30,17 @@ const Home: React.FC = () => {
       color: "bg-green-500",
     },
     {
-      title: "Event Catering",
-      description: "Make your special occasions memorable with our catering",
-      icon: Calendar,
+      title: "Hospital Tiffin Support",
+      description:
+        "Nutritious, easy-to-digest meals delivered to patients admitted in hospitals.",
+      icon: Stethoscope,
       color: "bg-purple-500",
     },
     {
-      title: "Diet & Health Meals",
-      description: "Nutritious meals crafted for your specific dietary needs",
-      icon: Heart,
+      title: "Custom-Made Tiffins",
+      description:
+        "Personalized meals tailored to your taste, dietary, or portion requirements.",
+      icon: ChefHat,
       color: "bg-red-500",
     },
   ];
@@ -44,23 +48,27 @@ const Home: React.FC = () => {
   const steps = [
     {
       step: "01",
-      title: "Browse Meals",
-      description: "Explore our diverse menu of freshly prepared meals",
+      title: "Explore Caterers & Meals",
+      description:
+        "Browse a curated list of home-based and local caterers. View their menus, ratings, and available meal options.",
     },
     {
       step: "02",
-      title: "Choose Your Plan",
-      description: "Select from our flexible subscription or one-time orders",
+      title: "Select Your Meal & Access Mode",
+      description:
+        "Choose your meal and decide how you want it — delivered to your home, picked up by you, or dine-in (if the caterer supports it).",
     },
     {
       step: "03",
-      title: "Schedule Delivery",
-      description: "Pick your preferred delivery time and location",
+      title: "Place Your Order & Pay",
+      description:
+        "Add items to your cart, select your preferred time slot, and pay online or opt for Cash on Delivery.",
     },
     {
       step: "04",
-      title: "Enjoy Fresh Food",
-      description: "Savor delicious, restaurant-quality meals at home",
+      title: "Enjoy Your Meal Your Way",
+      description:
+        "Relax at home, stop by and pick up, or dine in — your meal, your choice. Don’t forget to leave a review!",
     },
   ];
 
