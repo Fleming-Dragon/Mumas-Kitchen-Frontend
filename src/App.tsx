@@ -1,83 +1,33 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Meals from "./pages/Meals";
 import Contact from "./pages/Contact";
-import Login from "./components/auth/Login";
-import Register from "./components/auth/Register";
-import ProtectedRoute from "./components/ProtectedRoute";
-import { useAuth } from "./contexts/AuthContext";
-
-function AppRoutes() {
-  const { currentUser } = useAuth();
-
-  // When not signed in, render auth pages without Layout
-  if (!currentUser) {
-    return (
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        {/* Redirect any other routes to login when not authenticated */}
-        <Route path="*" element={<Navigate to="/login" replace />} />
-      </Routes>
-    );
-  }
-
-  // When signed in, render pages with Layout
-  return (
-    <Layout>
-      <Routes>
-        <Route path="/login" element={<Navigate to="/" replace />} />
-        <Route path="/register" element={<Navigate to="/" replace />} />
-
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <ProtectedRoute>
-              <About />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/meals"
-          element={
-            <ProtectedRoute>
-              <Meals />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <ProtectedRoute>
-              <Contact />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-    </Layout>
-  );
-}
 
 function App() {
   return (
     <Router>
-      <AppRoutes />
+      <Routes>
+        <Route path="/" element={<Layout children={<Home />} />} />
+        <Route path="/about" element={<Layout children={<About />} />} />
+        <Route path="/meals" element={<Layout children={<Meals />} />} />
+        <Route path="/contact" element={<Layout children={<Contact />} />} />
+        <Route
+          path="*"
+          element={
+            <Layout
+              children={
+                <div className="container mx-auto px-4 py-8 text-center">
+                  <h1 className="text-3xl font-bold mb-4">Page Not Found</h1>
+                  <p>The page you're looking for doesn't exist.</p>
+                </div>
+              }
+            />
+          }
+        />
+      </Routes>
     </Router>
   );
 }

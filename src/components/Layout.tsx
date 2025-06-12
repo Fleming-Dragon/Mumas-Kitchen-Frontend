@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Utensils, Menu, X } from "lucide-react";
 import img1 from "../../assets/logo_v1.png";
 import img2 from "../../assets/pexels-olly-831012.jpg";
-import { useAuth } from "../contexts/AuthContext";
+// Removed auth import
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -14,13 +14,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const location = useLocation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const navigate = useNavigate();
-  const { logout } = useAuth();
 
-  const handleSignOut = () => {
-    logout();
+  // Removed auth-related functionality
+  const handleUserProfile = () => {
     setIsDropdownOpen(false);
-    navigate("/login");
+    // Just toggle dropdown without auth
   };
 
   const navigation = [
@@ -75,6 +73,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               >
                 Order Now
               </Link>
+              {/* User profile picture without auth functionality */}
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="bg-amber-500 text-white ml-3 p-1 rounded-full font-medium hover:bg-amber-600 transform hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg"
@@ -92,12 +91,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                     Settings
                   </a>
-                  <button
-                    onClick={handleSignOut}
-                    className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100"
-                  >
-                    Sign out
-                  </button>
+                  {/* Removed sign out option */}
                 </div>
               </div>
             )}
