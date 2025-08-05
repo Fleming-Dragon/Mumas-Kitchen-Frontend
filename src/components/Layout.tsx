@@ -158,11 +158,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <div className="bg-amber-500 p-2 rounded-lg">
                   <Utensils className="h-6 w-6 text-white" />
                 </div>
-                <span className="text-xl font-bold">CaterHub</span>
+                <span className="text-xl font-bold">Mumma's Kitchen</span>
               </div>
               <p className="text-gray-400 leading-relaxed">
-                Connecting food lovers with the best local caterers. Fresh,
-                delicious meals delivered to your doorstep.
+                Bringing home-style meals to busy lives. Reliable, warm, and
+                personal food delivery that feels like mumma's cooking.
               </p>
             </div>
             <div>
@@ -183,13 +183,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact</h3>
               <div className="space-y-2 text-gray-400">
-                <p>hello@caterhub.com</p>
-                <p>+1 (555) 123-4567</p>
+                <p>hello@mummaskitchen.com</p>
+                <p>+91 98765 43210</p>
               </div>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 CaterHub. All rights reserved.</p>
+            <p>&copy; 2025 Mumma's Kitchen. All rights reserved.</p>
           </div>
         </div>
       </footer>

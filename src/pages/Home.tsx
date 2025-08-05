@@ -1,45 +1,43 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import HowItWorks from "../components/HowItWorks";
 import {
   ArrowRight,
   Clock,
   Users,
-  Calendar,
-  Heart,
   CheckCircle,
   Star,
   Stethoscope,
   ChefHat,
-  Truck,
-  Shield,
-  Award,
 } from "lucide-react";
 
 const Home: React.FC = () => {
   const services = [
     {
-      title: "Daily Tiffin Services",
-      description: "Fresh home-style meals delivered daily to your doorstep",
+      title: "Daily Home Tiffins",
+      description:
+        "Reliable home-style meals delivered daily by verified local caterers with Mumma's warmth",
       icon: Clock,
       color: "bg-blue-500",
     },
     {
-      title: "Corporate Catering",
-      description: "Professional catering solutions for your business events",
+      title: "Personalized Nutrition",
+      description:
+        "Customized meals for your health needs, dietary restrictions, and taste preferences",
       icon: Users,
       color: "bg-green-500",
     },
     {
-      title: "Hospital Tiffin Support",
+      title: "Flexible Delivery Options",
       description:
-        "Nutritious, easy-to-digest meals delivered to patients admitted in hospitals.",
+        "Choose from home delivery, pickup points, or dine-in options for maximum convenience",
       icon: Stethoscope,
       color: "bg-purple-500",
     },
     {
-      title: "Custom-Made Tiffins",
+      title: "Corporate & Bulk Orders",
       description:
-        "Personalized meals tailored to your taste, dietary, or portion requirements.",
+        "Scalable solutions for offices, hospitals, student hostels, and large groups",
       icon: ChefHat,
       color: "bg-red-500",
     },
@@ -74,26 +72,26 @@ const Home: React.FC = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "Priya Sharma",
       rating: 5,
       quote:
-        "CaterHub has transformed my daily lunch routine. The food is always fresh and delicious!",
+        "As a working professional, Mumma's Kitchen feels like having my mom's cooking delivered daily. The consistency and warmth in every meal is unmatched!",
       image:
         "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
     },
     {
-      name: "Michael Chen",
+      name: "Arjun Patel",
       rating: 5,
       quote:
-        "Perfect for our office catering needs. Professional service and amazing food quality.",
+        "Finally found a tiffin service that understands my dietary needs. The personalized meals have helped me maintain my health goals while studying.",
       image:
         "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
     },
     {
-      name: "Emily Rodriguez",
+      name: "Dr. Meera Singh",
       rating: 5,
       quote:
-        "The diet meals helped me achieve my health goals without compromising on taste.",
+        "For our hospital patients, these light and nutritious meals are perfect. The caterers understand exactly what recovery meals should be like.",
       image:
         "https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
     },
@@ -113,29 +111,34 @@ const Home: React.FC = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-48">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Fresh Meals
-              <span className="text-amber-600"> Delivered</span>
+              Home-Style Meals
+              <span className="text-amber-600"> That Feel Like</span>
               <br />
-              To Your Door
+              <span className="text-amber-600">Mumma's Touch</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Experience the convenience of restaurant-quality meals prepared by
-              local caterers and delivered fresh to your location anywhere in
-              <span className="font-bold text-amber-600"> Nashik</span>.
+            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+              We didn't build just another food app. We built something that
+              feels like home —
+              <span className="font-bold text-amber-600">
+                {" "}
+                Reliable, Warm, Personal
+              </span>
+              . Connect with verified local caterers who deliver nutritious,
+              home-style meals tailored to your taste and health needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/meals"
                 className="inline-flex items-center px-8 py-4 bg-amber-500 text-white text-lg font-semibold rounded-lg hover:bg-amber-600 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
               >
-                Explore Meals
+                Find Your Tiffin
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
               <Link
                 to="/about"
                 className="inline-flex items-center px-8 py-4 bg-white text-amber-600 text-lg font-semibold rounded-lg border-2 border-amber-200 hover:bg-amber-50 transition-all duration-200"
               >
-                Learn More
+                Our Story
               </Link>
             </div>
           </div>
@@ -143,50 +146,19 @@ const Home: React.FC = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              How It Works
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Getting delicious meals delivered is simple with our streamlined
-              process
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {steps.map((step, index) => (
-              <div key={index} className="text-center group">
-                <div className="relative mb-6">
-                  <div className="w-16 h-16 bg-amber-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto group-hover:bg-amber-600 transition-colors duration-200">
-                    {step.step}
-                  </div>
-                  {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gray-200 -translate-x-8"></div>
-                  )}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HowItWorks />
 
       {/* Services */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Services We Offer
+              Why Choose Mumma's Kitchen?
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              From daily meals to special events, we've got all your catering
-              needs covered
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We're not just another food delivery app. We're a personalized
+              catering platform designed for busy professionals, students,
+              patients, and anyone who misses home-cooked meals
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -220,11 +192,11 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What Our Customers Say
+              Stories from Our Mumma's Kitchen Family
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Don't just take our word for it - hear from our satisfied
-              customers
+              Real experiences from professionals, students, and families who
+              found their perfect home-style meal solution
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -266,11 +238,11 @@ const Home: React.FC = () => {
       <section className="py-20 bg-gradient-to-r from-amber-500 to-orange-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Start Your Food Journey?
+            Ready to Experience Home-Style Meals?
           </h2>
           <p className="text-xl text-amber-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of satisfied customers who trust CaterHub for their
-            daily meals
+            Join thousands who've discovered that reliable, warm, and personal
+            meals are just a click away with Mumma's Kitchen
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -278,13 +250,13 @@ const Home: React.FC = () => {
               className="inline-flex items-center px-8 py-4 bg-white text-amber-600 text-lg font-semibold rounded-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-lg"
             >
               <CheckCircle className="mr-2 h-5 w-5" />
-              Join Now
+              Start Your Tiffin Journey
             </Link>
             <Link
               to="/contact"
               className="inline-flex items-center px-8 py-4 bg-transparent text-white text-lg font-semibold rounded-lg border-2 border-white hover:bg-white hover:text-amber-600 transition-all duration-200"
             >
-              Become a Caterer
+              Partner With Us
             </Link>
           </div>
         </div>

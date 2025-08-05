@@ -17,7 +17,6 @@ import {
 
 const Meals: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedPlan, setSelectedPlan] = useState("student");
 
   const categories = [
     { id: "all", name: "All Meals", icon: Utensils },
@@ -35,7 +34,8 @@ const Meals: React.FC = () => {
       name: "Student Plan",
       price: "10% OFF",
       period: "",
-      description: "COMPONENT IN PROGRESS !!!!",
+      description:
+        "Perfect for students who want reliable, nutritious meals without the premium cost",
       features: [
         "Fixed daily menu",
         "Student ID verification required",
@@ -59,7 +59,8 @@ const Meals: React.FC = () => {
       name: "Non-Student Plan",
       price: "No Discount",
       period: "",
-      description: "COMPONENT IN PROGRESS !!!!",
+      description:
+        "Full flexibility and premium options for working professionals and families",
       features: [
         "Flexible menu selection",
         "Premium meal options",
@@ -180,11 +181,12 @@ const Meals: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Delicious <span className="text-amber-600">Meals</span> Await
+              Home-Style <span className="text-amber-600">Tiffins</span> Made
+              With Love
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-              Choose from our variety of freshly prepared meals, crafted by
-              local caterers with love and care
+              Discover our variety of freshly prepared tiffin services, crafted
+              with the same care and nutrition that mumma would provide
             </p>
 
             {/* Search Bar */}
@@ -233,7 +235,8 @@ const Meals: React.FC = () => {
               Choose Your Plan
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Select the plan that best fits your needs and budget
+              Select the tiffin plan that best fits your lifestyle and
+              nutritional needs
             </p>
           </div>
 

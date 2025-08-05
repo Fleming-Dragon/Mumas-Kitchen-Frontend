@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Clock, 
+import React, { useState } from "react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
   Send,
   Facebook,
   Twitter,
@@ -12,94 +12,117 @@ import {
   MessageCircle,
   Users,
   Award,
-  CheckCircle
-} from 'lucide-react';
+  CheckCircle,
+} from "lucide-react";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-    inquiryType: 'general'
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    inquiryType: "general",
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Reset form
     setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-      inquiryType: 'general'
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+      inquiryType: "general",
     });
   };
 
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email Us',
-      details: 'hello@caterhub.com',
-      subDetails: 'support@caterhub.com',
-      color: 'bg-blue-500',
+      title: "Email Us",
+      details: "hello@mummaskitchen.com",
+      subDetails: "support@mummaskitchen.com",
+      color: "bg-blue-500",
     },
     {
       icon: Phone,
-      title: 'Call Us',
-      details: '+1 (555) 123-4567',
-      subDetails: 'Mon-Fri 9AM-6PM',
-      color: 'bg-green-500',
+      title: "Call Us",
+      details: "+91 98765 43210",
+      subDetails: "Mon-Fri 9AM-8PM",
+      color: "bg-green-500",
     },
     {
       icon: MapPin,
-      title: 'Visit Us',
-      details: '123 Food Street',
-      subDetails: 'New York, NY 10001',
-      color: 'bg-purple-500',
+      title: "Visit Us",
+      details: "123 Home Street",
+      subDetails: "Mumbai, Maharashtra 400001",
+      color: "bg-purple-500",
     },
     {
       icon: Clock,
-      title: 'Business Hours',
-      details: 'Mon-Fri: 9AM-6PM',
-      subDetails: 'Sat-Sun: 10AM-4PM',
-      color: 'bg-amber-500',
+      title: "Service Hours",
+      details: "Mon-Fri: 7AM-9PM",
+      subDetails: "Sat-Sun: 8AM-8PM",
+      color: "bg-amber-500",
     },
   ];
 
   const socialLinks = [
-    { icon: Facebook, name: 'Facebook', url: '#', color: 'hover:text-blue-600' },
-    { icon: Twitter, name: 'Twitter', url: '#', color: 'hover:text-blue-400' },
-    { icon: Instagram, name: 'Instagram', url: '#', color: 'hover:text-pink-600' },
-    { icon: Linkedin, name: 'LinkedIn', url: '#', color: 'hover:text-blue-700' },
+    {
+      icon: Facebook,
+      name: "Facebook",
+      url: "#",
+      color: "hover:text-blue-600",
+    },
+    { icon: Twitter, name: "Twitter", url: "#", color: "hover:text-blue-400" },
+    {
+      icon: Instagram,
+      name: "Instagram",
+      url: "#",
+      color: "hover:text-pink-600",
+    },
+    {
+      icon: Linkedin,
+      name: "LinkedIn",
+      url: "#",
+      color: "hover:text-blue-700",
+    },
   ];
 
   const faqs = [
     {
-      question: 'How do I place an order?',
-      answer: 'You can place an order through our website by browsing our meals section, selecting your preferred items, and following the checkout process.'
+      question: "How do I start my tiffin service?",
+      answer:
+        "Simply browse our tiffin plans on the meals page, choose what suits your needs best, and place your order. We offer flexible options for students, professionals, and patients.",
     },
     {
-      question: 'What are your delivery areas?',
-      answer: 'We currently deliver to 25+ cities across the country. Check our delivery page for the complete list of areas we serve.'
+      question: "Which areas do you deliver to?",
+      answer:
+        "We currently serve 10+ cities with plans to expand further. Check our delivery areas to see if we serve your location with home delivery, pickup, or dine-in options.",
     },
     {
-      question: 'Can I customize my meal plan?',
-      answer: 'Yes! Our Non-Student Plan offers full customization options. You can modify ingredients, portion sizes, and dietary preferences.'
+      question: "Can I get personalized nutrition planning?",
+      answer:
+        "Absolutely! Our team works with you to create meal plans that support your health goals, dietary restrictions, and lifestyle needs — just like mumma would plan for you.",
     },
     {
-      question: 'How do I become a partner caterer?',
-      answer: 'Fill out our partner application form, and our team will review your application. We look for quality, reliability, and food safety compliance.'
+      question: "How do I become a kitchen partner?",
+      answer:
+        "We welcome passionate home cooks and small kitchen businesses to join our family. Apply through our partner form, and we'll guide you through our simple onboarding process.",
     },
   ];
 
@@ -113,8 +136,9 @@ const Contact: React.FC = () => {
               Get In <span className="text-amber-600">Touch</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Have questions, feedback, or want to partner with us? We'd love to hear from you. 
-              Our team is here to help with all your catering needs.
+              Have questions about our tiffin services, want to share feedback,
+              or interested in partnering with us? We're here to help — just
+              like family would be.
             </p>
           </div>
         </div>
@@ -131,11 +155,17 @@ const Contact: React.FC = () => {
                   key={index}
                   className="text-center p-8 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-200"
                 >
-                  <div className={`${info.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6`}>
+                  <div
+                    className={`${info.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6`}
+                  >
                     <IconComponent className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{info.title}</h3>
-                  <p className="text-gray-700 font-medium mb-1">{info.details}</p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    {info.title}
+                  </h3>
+                  <p className="text-gray-700 font-medium mb-1">
+                    {info.details}
+                  </p>
                   <p className="text-gray-500 text-sm">{info.subDetails}</p>
                 </div>
               );
@@ -151,17 +181,22 @@ const Contact: React.FC = () => {
             {/* Contact Form */}
             <div>
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Send Us a Message</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                  Send Us a Message
+                </h2>
                 <p className="text-gray-600 leading-relaxed">
-                  Fill out the form below and we'll get back to you within 24 hours. 
-                  For urgent matters, please call us directly.
+                  Fill out the form below and we'll get back to you within 24
+                  hours. For urgent tiffin needs, please call us directly.
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Full Name *
                     </label>
                     <input
@@ -176,7 +211,10 @@ const Contact: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Email Address *
                     </label>
                     <input
@@ -193,7 +231,10 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="inquiryType" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="inquiryType"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Inquiry Type
                   </label>
                   <select
@@ -212,7 +253,10 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Subject *
                   </label>
                   <input
@@ -228,7 +272,10 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Message *
                   </label>
                   <textarea
@@ -256,10 +303,13 @@ const Contact: React.FC = () => {
             {/* Map & Additional Info */}
             <div>
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Find Us</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                  Find Us
+                </h2>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  Visit our headquarters or reach out through any of our communication channels. 
-                  We're always happy to meet our customers and partners in person.
+                  Visit our headquarters or reach out through any of our
+                  communication channels. We're always happy to meet our
+                  customers and partners in person.
                 </p>
               </div>
 
@@ -268,13 +318,17 @@ const Contact: React.FC = () => {
                 <div className="text-center">
                   <MapPin className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                   <p className="text-gray-500">Interactive Map</p>
-                  <p className="text-sm text-gray-400">123 Food Street, New York, NY 10001</p>
+                  <p className="text-sm text-gray-400">
+                    123 Food Street, New York, NY 10001
+                  </p>
                 </div>
               </div>
 
               {/* Social Links */}
               <div className="mb-8">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Follow Us</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Follow Us
+                </h3>
                 <div className="flex space-x-4">
                   {socialLinks.map((social, index) => {
                     const IconComponent = social.icon;
@@ -302,11 +356,15 @@ const Contact: React.FC = () => {
                     <Users className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Start Ordering</h4>
-                    <p className="text-sm text-gray-600">Browse our delicious meal options</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Start Ordering
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      Browse our delicious meal options
+                    </p>
                   </div>
                 </a>
-                
+
                 <a
                   href="#"
                   className="flex items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200 group"
@@ -315,8 +373,12 @@ const Contact: React.FC = () => {
                     <Award className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Become a Partner</h4>
-                    <p className="text-sm text-gray-600">Join our network of caterers</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Become a Partner
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      Join our network of caterers
+                    </p>
                   </div>
                 </a>
               </div>
@@ -348,8 +410,12 @@ const Contact: React.FC = () => {
                     <MessageCircle className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
-                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                      {faq.question}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {faq.answer}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -376,8 +442,8 @@ const Contact: React.FC = () => {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-amber-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of satisfied customers who trust CaterHub for their daily meals. 
-            Start your food journey today!
+            Join thousands of satisfied customers who trust CaterHub for their
+            daily meals. Start your food journey today!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
