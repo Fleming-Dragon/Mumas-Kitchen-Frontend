@@ -5,9 +5,12 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo_v1.png";
 
 const Register: React.FC = () => {
-  const [name, setName] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -20,7 +23,14 @@ const Register: React.FC = () => {
     setLoading(true);
 
     try {
-      await register({ name, email, password });
+      await register({
+        username,
+        firstName,
+        lastName,
+        email,
+        password,
+        phone: phone || undefined,
+      });
       navigate("/dashboard"); // Redirect to dashboard after registration
     } catch (err: unknown) {
       const error = err as { response?: { data?: { message?: string } } };
@@ -52,22 +62,67 @@ const Register: React.FC = () => {
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
                 <label
-                  htmlFor="name"
+                  htmlFor="username"
                   className="block text-sm font-sans font-bold leading-6 text-gray-900 px-6"
                 >
-                  Full Name
+                  Username
                 </label>
                 <div className="mt-1 px-6">
                   <input
-                    id="name"
-                    name="name"
+                    id="username"
+                    name="username"
                     type="text"
-                    autoComplete="name"
+                    autoComplete="username"
                     required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                    placeholder="Username (3-20 characters)"
                   />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label
+                    htmlFor="firstName"
+                    className="block text-sm font-sans font-bold leading-6 text-gray-900 px-6"
+                  >
+                    First Name
+                  </label>
+                  <div className="mt-1 px-6">
+                    <input
+                      id="firstName"
+                      name="firstName"
+                      type="text"
+                      autoComplete="given-name"
+                      required
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="lastName"
+                    className="block text-sm font-sans font-bold leading-6 text-gray-900 px-6"
+                  >
+                    Last Name
+                  </label>
+                  <div className="mt-1 px-6">
+                    <input
+                      id="lastName"
+                      name="lastName"
+                      type="text"
+                      autoComplete="family-name"
+                      required
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                      className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -94,6 +149,27 @@ const Register: React.FC = () => {
 
               <div>
                 <label
+                  htmlFor="phone"
+                  className="block text-sm font-sans font-bold leading-6 text-gray-900 px-6"
+                >
+                  Phone Number (Optional)
+                </label>
+                <div className="mt-1 px-6">
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                    placeholder="10-digit Indian number"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
                   htmlFor="password"
                   className="block text-sm font-sans font-bold leading-6 text-gray-900 px-6"
                 >
@@ -109,6 +185,7 @@ const Register: React.FC = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                    placeholder="Min 6 chars, 1 uppercase, 1 lowercase, 1 number"
                   />
                 </div>
               </div>

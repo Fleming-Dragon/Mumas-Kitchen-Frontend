@@ -12,6 +12,7 @@ import Meals from "./pages/Meals";
 import Contact from "./pages/Contact";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
+import AdminDashboard from "./components/admin/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useAuth } from "./contexts/AuthContext";
 
@@ -66,6 +67,14 @@ function AppRoutes() {
           element={
             <ProtectedRoute>
               <Contact />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
             </ProtectedRoute>
           }
         />

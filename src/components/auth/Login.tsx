@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo_v1.png";
 
 const Login: React.FC = () => {
-  const [email, setEmail] = useState<string>("");
+  const [identifier, setIdentifier] = useState<string>(""); // Can be email or username
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
@@ -20,7 +20,7 @@ const Login: React.FC = () => {
     setLoading(true);
 
     try {
-      await login({ email, password });
+      await login({ identifier, password });
       navigate("/"); // Redirect to dashboard after login
     } catch (err: unknown) {
       const error = err as { response?: { data?: { message?: string } } };
@@ -52,21 +52,22 @@ const Login: React.FC = () => {
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
                 <label
-                  htmlFor="email"
+                  htmlFor="identifier"
                   className="block text-sm font-sans font-bold leading-6 text-gray-900 px-6"
                 >
-                  Email Id
+                  Email or Username
                 </label>
                 <div className="mt-1 px-6">
                   <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
+                    id="identifier"
+                    name="identifier"
+                    type="text"
+                    autoComplete="username"
                     required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={identifier}
+                    onChange={(e) => setIdentifier(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                    placeholder="Enter your email or username"
                   />
                 </div>
               </div>

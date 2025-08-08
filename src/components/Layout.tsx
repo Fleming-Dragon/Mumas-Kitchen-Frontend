@@ -15,7 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const navigate = useNavigate();
-  const { logout } = useAuth();
+  const { logout, currentUser } = useAuth();
 
   const handleSignOut = () => {
     logout();
@@ -29,6 +29,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     { name: "Meals", href: "/meals" },
     { name: "Contact", href: "/contact" },
   ];
+
+  // Add admin navigation item if user is admin
+  const allNavigation =
+    currentUser?.role === "admin"
+      ? [...navigation, { name: "Admin", href: "/admin" }]
+      : navigation;
 
   const isActive = (path: string) => {
     return location.pathname === path;
@@ -52,7 +58,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8">
-              {navigation.map((item) => (
+              {allNavigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
@@ -120,7 +126,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
+              {allNavigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}

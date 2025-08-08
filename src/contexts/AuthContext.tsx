@@ -6,35 +6,47 @@ interface User {
   id: string;
   email: string;
   name?: string;
+  role?: string;
+  username?: string;
+  firstName?: string;
+  lastName?: string;
   // Add other user properties as needed
 }
 
 // Define registration data type
 interface RegisterUserData {
+  username: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
-  name?: string;
-  // Add other registration fields as needed
+  phone?: string;
 }
 
 // Define login credentials type
 interface LoginCredentials {
-  email: string;
+  identifier: string; // Can be email or username
   password: string;
 }
 
 // Define API response types
 interface AuthResponse {
   data: {
-    token: string;
-    // Add other response properties as needed
+    success: boolean;
+    message: string;
+    data: {
+      user: User;
+      token: string;
+    };
   };
 }
 
 interface ProfileResponse {
   data: {
-    data: User;
-    // Add other response properties as needed
+    success: boolean;
+    data: {
+      user: User;
+    };
   };
 }
 
@@ -77,11 +89,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     try {
       setError(null);
       const response = (await authService.register(userData)) as AuthResponse;
-      localStorage.setItem("token", response.data.token);
+
+      // Fix: Backend sends token in response.data.data.token (Axios wraps the response)
+      localStorage.setItem("token", response.data.data.token);
 
       // Get user profile after registration
       const userResponse = (await authService.getProfile()) as ProfileResponse;
-      setCurrentUser(userResponse.data.data);
+      setCurrentUser(userResponse.data.data.user);
       return response;
     } catch (err: unknown) {
       const error = err as { response?: { data?: { message?: string } } };
@@ -96,11 +110,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     try {
       setError(null);
       const response = (await authService.login(credentials)) as AuthResponse;
-      localStorage.setItem("token", response.data.token);
+
+      // Fix: Backend sends token in response.data.data.token (Axios wraps the response)
+      localStorage.setItem("token", response.data.data.token);
 
       // Get user profile after login
       const userResponse = (await authService.getProfile()) as ProfileResponse;
-      setCurrentUser(userResponse.data.data);
+      setCurrentUser(userResponse.data.data.user);
       return response;
     } catch (err: unknown) {
       const error = err as { response?: { data?: { message?: string } } };
